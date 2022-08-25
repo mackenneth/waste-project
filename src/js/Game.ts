@@ -1,5 +1,5 @@
 import { Countdown } from '@/js/Countdown'
-import { countdown } from '@/js/elements'
+import { countdown } from '@/js/consts/elements'
 
 export class Game {
     private hasGameStarted = false

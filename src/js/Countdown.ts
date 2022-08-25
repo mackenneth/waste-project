@@ -1,4 +1,4 @@
-import {timerInner, countdownCircle} from '@/js/elements'
+import {timerInner, countdownCircle} from '@/js/consts/elements'
 
 
 export class Countdown {
