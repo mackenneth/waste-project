@@ -5,3 +5,20 @@
 .container {
   padding: 1rem;
 }
+
+.waste-containers {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.waste-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  &__description {
+    position: absolute;
+    color: #FFF;
+  }
+}

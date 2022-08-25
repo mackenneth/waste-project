@@ -1,12 +1,19 @@
 import { Countdown } from '@/js/Countdown'
-import { countdown } from '@/js/consts/elements'
+import { WasteContainers } from '@/js/WasteContainers'
+import { countdown, wasteContainers } from '@/js/consts/elements'
+import { TContainer } from '@/js/types/types'
+import { defaultGameDuration, defaultWasteContainers } from '@/js/consts/consts'
 
 export class Game {
     private hasGameStarted = false
 
     private countdown: Countdown
-    constructor(gameDuration: number) {
+
+    private wasteContainers: WasteContainers
+
+    constructor(gameDuration: number = defaultGameDuration, containers: Array<TContainer> = defaultWasteContainers) {
         this.countdown = new Countdown(gameDuration)
+        this.wasteContainers = new WasteContainers(containers)
         this.init()
     }
 
@@ -16,6 +23,10 @@ export class Game {
                 this.startGame()
             }
         })
+        wasteContainers.querySelectorAll('.waste-container')
+            .forEach((container: HTMLElement) => {
+                container.addEventListener('click',() => this.checkIsRightContainer(container.dataset.wasteId))
+            })
     }
 
     private startGame(): void {
@@ -28,5 +39,11 @@ export class Game {
 
     private finishGame(): void {
         this.hasGameStarted = false
+    }
+
+    private checkIsRightContainer(wasteId: string): void {
+        if(this.hasGameStarted) {
+            console.log(wasteId)
+        }
     }
 }
