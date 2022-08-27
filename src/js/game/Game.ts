@@ -1,8 +1,10 @@
 import { Countdown } from '@/js/game/Countdown'
 import { WasteContainers } from '@/js/game/WasteContainers'
 import { countdown, wasteContainers } from '@/js/consts/elements'
-import { TWasteType } from '@/js/types/types'
-import { defaultGameDuration, defaultWasteTypes } from '@/js/consts/consts'
+import { TWaste, TWasteType } from '@/js/types/types'
+import { defaultGameDuration, defaultWastes, defaultWasteTypes } from '@/js/consts/defaultSettings'
+
+import { Wastes } from '@/js/game/Wastes'
 
 export class Game {
     private hasGameStarted = false
@@ -11,9 +13,12 @@ export class Game {
 
     private wasteContainers: WasteContainers
 
-    constructor(gameDuration: number = defaultGameDuration, containers: Array<TWasteType> = defaultWasteTypes) {
+    private wastes: Wastes
+
+    constructor(gameDuration: number = defaultGameDuration, containers: Array<TWasteType> = defaultWasteTypes, wastes: Array<TWaste> = defaultWastes) {
         this.countdown = new Countdown(gameDuration)
         this.wasteContainers = new WasteContainers(containers)
+        this.wastes = new Wastes(defaultWasteTypes, wastes)
         this.init()
     }
 

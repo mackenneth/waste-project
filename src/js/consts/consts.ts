@@ -1,4 +1,3 @@
-import { TWasteType } from '@/js/types/types'
 
 export enum WasteType {
     Plastic = 'plastic',
@@ -24,6 +23,3 @@ export const wasteTypesEntities = {
     },
 }
 
-
-export const defaultWasteTypes: Array<TWasteType> = [wasteTypesEntities.plastic, wasteTypesEntities.glass, wasteTypesEntities.paper]
-export const defaultGameDuration = 60
