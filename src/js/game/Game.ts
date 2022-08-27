@@ -1,5 +1,5 @@
-import { Countdown } from '@/js/Countdown'
-import { WasteContainers } from '@/js/WasteContainers'
+import { Countdown } from '@/js/game/Countdown'
+import { WasteContainers } from '@/js/game/WasteContainers'
 import { countdown, wasteContainers } from '@/js/consts/elements'
 import { TWasteType } from '@/js/types/types'
 import { defaultGameDuration, defaultWasteTypes } from '@/js/consts/consts'
