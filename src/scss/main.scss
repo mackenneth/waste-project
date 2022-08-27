@@ -1,6 +1,9 @@
 @import "@/scss/normalize/normalize.scss";
 @import "@/scss/normalize/reset.scss";
 
+$waste-image-width: 50px;
+$waste-image-height: 50px;
+
 .game {
   display: flex;
   flex-direction: column;
@@ -80,5 +83,35 @@
   font-size: 2rem;
   @media (orientation:landscape) {
     margin-bottom: 0;
+  }
+}
+
+.answer {
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  &__incorrect, &__correct {
+    width: $waste-image-width;
+    height: $waste-image-height;
+    display: none;
+  }
+}
+
+.show-element {
+  display: flex;
+  animation: show-element 0.3s linear forwards;
+}
+
+@keyframes show-element {
+  0% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: scale(1);
   }
 }

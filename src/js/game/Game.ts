@@ -1,6 +1,13 @@
 import { Countdown } from '@/js/game/Countdown'
 import { WasteContainers } from '@/js/game/WasteContainers'
-import { countdown, currentScore, currentWaste, wasteContainers } from '@/js/consts/elements'
+import {
+    correctAnswerImg,
+    countdown,
+    currentScore,
+    currentWaste,
+    incorrectAnswerImg,
+    wasteContainers
+} from '@/js/consts/elements'
 import { TWaste, TWasteType } from '@/js/types/types'
 import { defaultGameDuration, defaultWastes, defaultWasteTypes } from '@/js/consts/defaultSettings'
 
@@ -34,12 +41,13 @@ export class Game {
         })
         wasteContainers.querySelectorAll('.waste-container')
             .forEach((container: HTMLElement) => {
-                container.addEventListener('click',() => this.checkIsRightContainer(container.dataset.wasteId))
+                container.addEventListener('click',() => this.checkAnswer(container.dataset.wasteId))
             })
     }
 
     private startGame(): void {
         this.hasGameStarted = true
+        this.setScore(0)
         this.countdown.startCountdown()
             .then(() => {
                 this.finishGame()
@@ -49,29 +57,54 @@ export class Game {
 
     private finishGame(): void {
         this.hasGameStarted = false
-        currentWaste.style.display = 'none'
+        currentWaste.classList.remove('show-element')
     }
 
-    private checkIsRightContainer(wasteTypeId: string): void {
+    private checkAnswer(wasteTypeId: string): void {
         if(this.hasGameStarted) {
-            if(Number(wasteTypeId) === this.currentWasteTypeId) {
-                this.setScore(this.score + 1)
+            if (Number(wasteTypeId) === this.currentWasteTypeId) {
+                this.correctAnswer()
+            } else {
+                this.incorrectAnswer()
             }
-            this.setWasteElement()
         }
     }
 
     private setWasteElement(): void {
-        const waste = this.wastes.getRandomWaste()
-        this.currentWasteTypeId = waste.wasteId
+        if(this.hasGameStarted) {
+            const waste = this.wastes.getRandomWaste()
+            this.currentWasteTypeId = waste.wasteId
 
-        currentWaste.innerHTML = waste.image
-        currentWaste.style.display = 'block'
-        currentWaste.querySelector('svg').style.fill = waste.color
+            currentWaste.innerHTML = waste.image
+            currentWaste.querySelector('svg').style.fill = waste.color
+            currentWaste.classList.add('show-element')
+        }
     }
 
     private setScore(score: number) {
         this.score = score
         currentScore.textContent = score.toString()
+    }
+
+    private correctAnswer(): void {
+        currentWaste.classList.remove('show-element')
+        correctAnswerImg.classList.add('show-element')
+        this.setScore(this.score + 1)
+
+        setTimeout(() => {
+            correctAnswerImg.classList.remove('show-element')
+            this.setWasteElement()
+        }, 500)
+
+    }
+
+    private incorrectAnswer(): void {
+        currentWaste.classList.remove('show-element')
+        incorrectAnswerImg.classList.add('show-element')
+
+        setTimeout(() => {
+            incorrectAnswerImg.classList.remove('show-element')
+            this.setWasteElement()
+        }, 500)
     }
 }

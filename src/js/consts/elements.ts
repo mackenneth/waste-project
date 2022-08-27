@@ -5,3 +5,6 @@ export const wasteContainerTemplate = document.querySelector('#waste-container-t
 export const wasteContainers = document.querySelector('.waste-containers')
 export const currentWaste = document.querySelector('.game-data__current-waste') as HTMLElement
 export const currentScore = document.querySelector('#current-score') as HTMLElement
+export const correctAnswerImg = document.querySelector('.answer__correct') as HTMLImageElement
+export const incorrectAnswerImg = document.querySelector('.answer__incorrect') as HTMLImageElement
+export const gameData = document.querySelector('.game-data') as HTMLElement

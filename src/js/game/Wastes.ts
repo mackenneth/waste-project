@@ -16,7 +16,6 @@ export class Wastes {
 
     private createWastes(wasteTypesEntities: Array<TWasteType>, wastes: Array<TWaste>) {
         wastes.forEach(waste => {
-            debugger
             const wasteId = wasteTypesEntities.findIndex(entity => entity.wasteType === waste.type)
             if (wasteId !== -1) {
                 this.wastes.push(this.getWaste(waste, wasteId))
