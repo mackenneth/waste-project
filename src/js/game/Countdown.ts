@@ -21,11 +21,6 @@ export class Countdown {
         countdownCircle.style.strokeDashoffset = strokeDashoffset
     }
 
-    private setCountdownCircleTransitionDuration(seconds: number): void {
-        // @ts-ignore
-        countdownCircle.style.transitionDuration = `${seconds}s`
-    }
-
     public setTimerInner(text: string | number): void {
         // @ts-ignore
         timerInner.innerText = text
