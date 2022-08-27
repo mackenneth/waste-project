@@ -9,18 +9,16 @@
     <section class="game">
         <div class="container">
             <div class="game-progress">
-                <div class="game-progress__countdown countdown">
-                    <div class="countdown-inner">
-                        <span class="countdown__time-value">Play!</span>
-                        <span class="countdown__new-waste"></span>
-                    </div>
-                    <svg class="countdown__image" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
-                        <circle id="circle" class="countdown__circle" r="69.85699" cy="81" cx="81" stroke-width="8" stroke="#6fdb6f" fill="none"/>
-                    </svg>
+                <div class="game-progress__game-data game-data">
+                    <span class="game-data__time-value">Play!</span>
+                    <span class="game-data__current-waste"></span>
                 </div>
-                <div class="game-progress__score">
-                    Your score: <span id="score">0</span>
-                </div>
+                <svg class="game-progress__countdown countdown" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+                    <circle id="circle" class="countdown__circle" r="69.85699" cy="81" cx="81" stroke-width="8" stroke="#6fdb6f" fill="none"/>
+                </svg>
+            </div>
+            <div class="score">
+                <div class="score__current">Your score: <span id="score">0</span></div>
             </div>
             <div class="waste-containers">
                 <template id="waste-container-template">
