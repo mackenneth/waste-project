@@ -54,7 +54,7 @@ export const glassBottleSvg = '<?xml version="1.0" encoding="iso-8859-1"?>\n' +
     '</svg>\n'
 
 export const paperSheetSvg = '<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n' +
-    '\t width="96.5px" height="96.5px" viewBox="0 0 96.5 96.5" style="enable-background:new 0 0 96.5 96.5;" xml:space="preserve">\n' +
+    '\t  viewBox="0 0 96.5 96.5" style="enable-background:new 0 0 96.5 96.5;" xml:space="preserve">\n' +
     '<g>\n' +
     '\t<g>\n' +
     '\t\t<path d="M84.5,10.495c-0.344,0-0.684,0.023-1.02,0.052c-0.084-0.023-0.166-0.052-0.256-0.052H34c-6.617,0-12,5.383-12,12v50.51H1\n' +

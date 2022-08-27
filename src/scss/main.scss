@@ -39,17 +39,19 @@
   justify-content: center;
   align-items: center;
   position: absolute;
+  flex-direction: column;
   width: 100%;
   height: 100%;
 
   &__time-value {
 
+    margin-bottom: 0.5rem;
   }
 
   &__current-waste {
     display: none;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
   }
 }
 
