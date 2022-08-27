@@ -1,4 +1,5 @@
 /node_modules/
+/.idea
 /dist/css
 /dist/index.html
 /dist/index.js
