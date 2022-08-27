@@ -1,7 +1,7 @@
 import { TCreatedWaste, TWaste, TWasteType } from '@/js/types/types'
 
 export class Wastes {
-    private wastes: Array<TCreatedWaste>
+    private wastes: Array<TCreatedWaste> = []
 
     constructor(wasteTypesEntities: Array<TWasteType>, wastes: Array<TWaste>) {
         this.createWastes(wasteTypesEntities, wastes)
@@ -21,5 +21,9 @@ export class Wastes {
                 this.wastes.push(this.getWaste(waste, wasteId))
             }
         })
+    }
+
+    public getRandomWaste(): TCreatedWaste {
+        return this.wastes[Math.floor(Math.random() * this.wastes.length)]
     }
 }

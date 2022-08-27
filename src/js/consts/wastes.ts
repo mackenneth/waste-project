@@ -1,20 +1,20 @@
 import { wasteTypesEntities } from '@/js/consts/consts'
-const imagePath = '/assets/images/wastes'
+import { plasticBottleSvg, glassBottleSvg, paperSheetSvg } from '@/js/consts/wasteImages'
 
 export const plasticBottle = {
     type: wasteTypesEntities.plastic.wasteType,
     color: wasteTypesEntities.plastic.color,
-    image: `${imagePath}/plasticBottle.svg`,
+    image: plasticBottleSvg,
 }
 
 export const glassBottle = {
     type: wasteTypesEntities.plastic.wasteType,
     color: wasteTypesEntities.glass.color,
-    image: `${imagePath}/glassBottle.svg`,
+    image: glassBottleSvg,
 }
 
 export const paperSheet = {
     type: wasteTypesEntities.plastic.wasteType,
     color: wasteTypesEntities.paper.color,
-    image: `${imagePath}/paperSheet.svg`,
+    image: paperSheetSvg,
 }
