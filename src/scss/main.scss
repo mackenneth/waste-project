@@ -8,17 +8,19 @@
 
 .waste-containers {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .waste-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+  max-width: 150px;
   &__description {
-    position: absolute;
-    color: #FFF;
+    text-align: center;
+  }
+
+  @media (orientation:landscape) {
+    max-width: 120px;
   }
 }

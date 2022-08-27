@@ -1,26 +1,24 @@
-import { TContainer } from '@/js/types/types'
+import { TWasteType } from '@/js/types/types'
 
-const plasticContainer = {
-    image: '/assets/images/containers/container-blue.jpg',
-    wasteId: 1,
-    displayingName: 'Plastic',
-    wasteType: 'plastic',
+const wasteTypes = {
+    plastic: {
+        wasteType: 'plastic',
+        color: '#0060f2',
+        displayingName: 'plastic'
+    },
+    glass: {
+        wasteType: 'glass',
+        color: '#73c011',
+        displayingName: 'glass'
+    },
+    paper: {
+        wasteType: 'paper',
+        color: '#F2AA0B',
+        displayingName: 'paper'
+    },
 }
 
-const glassContainer = {
-    image: '/assets/images/containers/container-red.jpg',
-    wasteId: 2,
-    displayingName: 'Glass',
-    wasteType: 'glass',
-}
 
-const paperContainer = {
-    image: '/assets/images/containers/container-green.jpg',
-    wasteId: 3,
-    displayingName: 'Paper',
-    wasteType: 'paper',
-}
-
-export const defaultWasteContainers: Array<TContainer> = [plasticContainer, glassContainer, paperContainer]
+export const defaultWasteTypes: Array<TWasteType> = [wasteTypes.plastic, wasteTypes.glass, wasteTypes.paper]
 
 export const defaultGameDuration = 60
