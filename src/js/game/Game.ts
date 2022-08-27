@@ -1,6 +1,6 @@
 import { Countdown } from '@/js/game/Countdown'
 import { WasteContainers } from '@/js/game/WasteContainers'
-import { countdown, currentWaste, wasteContainers } from '@/js/consts/elements'
+import { countdown, currentScore, currentWaste, wasteContainers } from '@/js/consts/elements'
 import { TWaste, TWasteType } from '@/js/types/types'
 import { defaultGameDuration, defaultWastes, defaultWasteTypes } from '@/js/consts/defaultSettings'
 
@@ -16,6 +16,8 @@ export class Game {
     private wastes: Wastes
 
     private currentWasteTypeId: number| null = null
+
+    private score = 0
 
     constructor(gameDuration: number = defaultGameDuration, containers: Array<TWasteType> = defaultWasteTypes, wastes: Array<TWaste> = defaultWastes) {
         this.countdown = new Countdown(gameDuration)
@@ -50,9 +52,12 @@ export class Game {
         currentWaste.style.display = 'none'
     }
 
-    private checkIsRightContainer(wasteId: string): void {
+    private checkIsRightContainer(wasteTypeId: string): void {
         if(this.hasGameStarted) {
-            console.log(wasteId)
+            if(Number(wasteTypeId) === this.currentWasteTypeId) {
+                this.setScore(this.score + 1)
+            }
+            this.setWasteElement()
         }
     }
 
@@ -63,5 +68,10 @@ export class Game {
         currentWaste.innerHTML = waste.image
         currentWaste.style.display = 'block'
         currentWaste.querySelector('svg').style.fill = waste.color
+    }
+
+    private setScore(score: number) {
+        this.score = score
+        currentScore.textContent = score.toString()
     }
 }
