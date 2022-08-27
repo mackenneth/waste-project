@@ -1,12 +1,14 @@
+import { WasteType } from '@/js/consts/consts'
+
 export type TContainer = {
-    wasteType: string
+    wasteType: WasteType
     wasteId: number
     color: string
     displayingName: string
 }
 
 export type TWasteType = {
-    wasteType: string
+    wasteType: WasteType
     color: string
     displayingName: string
 }

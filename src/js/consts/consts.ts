@@ -1,24 +1,29 @@
 import { TWasteType } from '@/js/types/types'
 
-const wasteTypes = {
+export enum WasteType {
+    Plastic = 'plastic',
+    Glass = 'glass',
+    Paper = 'paper',
+}
+
+export const wasteTypesEntities = {
     plastic: {
-        wasteType: 'plastic',
+        wasteType: WasteType.Plastic,
         color: '#0060f2',
-        displayingName: 'plastic'
+        displayingName: 'Plastic'
     },
     glass: {
-        wasteType: 'glass',
+        wasteType: WasteType.Glass,
         color: '#73c011',
-        displayingName: 'glass'
+        displayingName: 'Glass'
     },
     paper: {
-        wasteType: 'paper',
+        wasteType: WasteType.Paper,
         color: '#F2AA0B',
-        displayingName: 'paper'
+        displayingName: 'Paper'
     },
 }
 
 
-export const defaultWasteTypes: Array<TWasteType> = [wasteTypes.plastic, wasteTypes.glass, wasteTypes.paper]
-
+export const defaultWasteTypes: Array<TWasteType> = [wasteTypesEntities.plastic, wasteTypesEntities.glass, wasteTypesEntities.paper]
 export const defaultGameDuration = 60
