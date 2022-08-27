@@ -8,13 +8,13 @@ export const plasticBottle = {
 }
 
 export const glassBottle = {
-    type: wasteTypesEntities.plastic.wasteType,
+    type: wasteTypesEntities.glass.wasteType,
     color: wasteTypesEntities.glass.color,
     image: glassBottleSvg,
 }
 
 export const paperSheet = {
-    type: wasteTypesEntities.plastic.wasteType,
+    type: wasteTypesEntities.paper.wasteType,
     color: wasteTypesEntities.paper.color,
     image: paperSheetSvg,
 }

@@ -19,10 +19,10 @@ export class Game {
 
     private score = 0
 
-    constructor(gameDuration: number = defaultGameDuration, containers: Array<TWasteType> = defaultWasteTypes, wastes: Array<TWaste> = defaultWastes) {
+    constructor(gameDuration: number = defaultGameDuration, wasteTypes: Array<TWasteType> = defaultWasteTypes, wastes: Array<TWaste> = defaultWastes) {
         this.countdown = new Countdown(gameDuration)
-        this.wasteContainers = new WasteContainers(containers)
-        this.wastes = new Wastes(defaultWasteTypes, wastes)
+        this.wasteContainers = new WasteContainers(wasteTypes)
+        this.wastes = new Wastes(wasteTypes, wastes)
         this.init()
     }
 
