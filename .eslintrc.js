@@ -8,6 +8,8 @@ module.exports = {
     'plugins': ['@typescript-eslint'],
     extends: [
         'eslint:recommended',
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:@typescript-eslint/recommended',
     ],
     parserOptions: {
         ecmaVersion: 2020,
@@ -25,6 +27,7 @@ module.exports = {
         ],
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
+        '@typescript-eslint/ban-ts-ignore': 'off',
         'max-len': 'off',
         'no-unexpected-multiline': 'off',
         'linebreak-style': 'off',
