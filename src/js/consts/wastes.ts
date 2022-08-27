@@ -1,5 +1,5 @@
 import { wasteTypesEntities } from '@/js/consts/consts'
-const imagePath = '/dist/assets/images/wastes'
+const imagePath = '/assets/images/wastes'
 
 export const plasticBottle = {
     type: wasteTypesEntities.plastic.wasteType,
