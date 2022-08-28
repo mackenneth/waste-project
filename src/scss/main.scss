@@ -14,11 +14,15 @@ $waste-image-height: 50px;
 }
 
 .container {
-  padding: 1rem;
+  padding: 2rem;
   height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 }
 
 .game-progress {
@@ -94,10 +98,25 @@ $waste-image-height: 50px;
   }
 }
 
+.score-wrapper {
+  display: flex;
+  justify-content: end;
+
+  @media (max-width: 575px) {
+    justify-content: center;
+  }
+}
+
 .score {
   text-align: right;
   margin-bottom: 2rem;
   font-size: 2rem;
+  user-select: none;
+  padding: 1rem;
+  border-radius: 10px;
+  background: green;
+  color: white;
+
   @media (orientation:landscape) {
     margin-bottom: 0;
   }
