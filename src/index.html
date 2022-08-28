@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Waste sorting</title>
 </head>
 <body>
 <div class="container">
     <section class="score">
         <div class="score__current">Your score: <span id="current-score">0</span></div>
+        <div class="score__best">Best score: <span id="best-score">0</span></div>
     </section>
     <section class="game">
         <div class="game-progress">
@@ -18,7 +19,8 @@
             </div>
             <div class="game-progress__answer answer">
                 <img class="answer__correct" src="/assets/images/icons/correct-answer.svg" alt="Answer is correct">
-                <img class="answer__incorrect" src="/assets/images/icons/incorrect-answer.svg" alt="Answer isn't correct">
+                <img class="answer__incorrect" src="/assets/images/icons/incorrect-answer.svg"
+                     alt="Answer isn't correct">
             </div>
             <svg class="game-progress__countdown countdown" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
                 <circle id="circle" class="countdown__circle" r="69.85699" cy="81" cx="81" stroke-width="8"
@@ -38,6 +40,26 @@
             </template>
         </div>
     </section>
+    <div class="modal">
+        <div class="modal__background"></div>
+        <div class="modal__inner">
+            <svg class="modal__close" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 x="0px" y="0px"
+                 viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;" xml:space="preserve">
+                <g>
+                    <path d="M76.563,490h336.875C455.547,490,490,455.547,490,413.438V76.563C490,34.453,455.547,0,413.437,0H76.563
+                        C34.453,0,0,34.453,0,76.563v336.875C0,455.547,34.453,490,76.563,490z M124.835,175.445l50.61-50.611L245,194.39l69.555-69.555
+                        l50.61,50.611L295.611,245l69.555,69.555l-50.61,50.611L245,295.611l-69.555,69.555l-50.61-50.61L194.389,245L124.835,175.445z"/>
+                </g>
+            </svg>
+            <div class="new-record">
+                <div class="new-record__image"></div>
+                <h2 class="new-record__title">Congratulations!</h2>
+                <p class="new-record__description">You have a new record!</p>
+                <span class="new-record__best-score">0</span>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

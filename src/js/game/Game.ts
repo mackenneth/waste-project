@@ -1,11 +1,13 @@
 import { Countdown } from '@/js/game/Countdown'
 import { WasteContainers } from '@/js/game/WasteContainers'
 import {
+    bestScore,
+    closeModalBtn,
     correctAnswerImg,
     countdown,
     currentScore,
     currentWaste,
-    incorrectAnswerImg,
+    incorrectAnswerImg, modal, newRecordBestScore,
     wasteContainers
 } from '@/js/consts/elements'
 import { TWaste, TWasteType } from '@/js/types/types'
@@ -26,10 +28,13 @@ export class Game {
 
     private score = 0
 
+    private bestScore: number
+
     constructor(gameDuration: number = defaultGameDuration, wasteTypes: Array<TWasteType> = defaultWasteTypes, wastes: Array<TWaste> = defaultWastes) {
         this.countdown = new Countdown(gameDuration)
         this.wasteContainers = new WasteContainers(wasteTypes)
         this.wastes = new Wastes(wasteTypes, wastes)
+        this.bestScore = this.getBestScore()
         this.init()
     }
 
@@ -43,6 +48,10 @@ export class Game {
             .forEach((container: HTMLElement) => {
                 container.addEventListener('click',() => this.checkAnswer(container.dataset.wasteId))
             })
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.remove('fade-in-element')
+        })
+        this.setBestScore(this.bestScore)
     }
 
     private startGame(): void {
@@ -58,6 +67,11 @@ export class Game {
     private finishGame(): void {
         this.hasGameStarted = false
         currentWaste.classList.remove('show-element')
+        if (this.score > this.bestScore) {
+            this.setBestScore(this.score)
+            modal.classList.add('fade-in-element')
+            this.saveBestScore(this.score)
+        }
     }
 
     private checkAnswer(wasteTypeId: string): void {
@@ -84,6 +98,24 @@ export class Game {
     private setScore(score: number) {
         this.score = score
         currentScore.textContent = score.toString()
+    }
+
+    private setBestScore(score: number) {
+        this.bestScore = score
+
+        const displayingBestScore = score.toString()
+        bestScore.textContent = displayingBestScore
+        newRecordBestScore.textContent = displayingBestScore
+    }
+
+    private getBestScore(): number {
+        const bestScore = JSON.parse(localStorage.getItem('bestScore'))
+        return bestScore ?? 0
+    }
+
+    private saveBestScore(score: number): void {
+        localStorage.setItem('bestScore', JSON.stringify(score))
+        this.bestScore = score
     }
 
     private correctAnswer(): void {
