@@ -30,6 +30,8 @@ export class Game {
 
     private bestScore: number
 
+    private canAnswer = false
+
     constructor(gameDuration: number = defaultGameDuration, wasteTypes: Array<TWasteType> = defaultWasteTypes, wastes: Array<TWaste> = defaultWastes) {
         this.countdown = new Countdown(gameDuration)
         this.wasteContainers = new WasteContainers(wasteTypes)
@@ -56,6 +58,7 @@ export class Game {
 
     private startGame(): void {
         this.hasGameStarted = true
+        this.canAnswer = true
         this.setScore(0)
         this.countdown.startCountdown()
             .then(() => {
@@ -75,7 +78,8 @@ export class Game {
     }
 
     private checkAnswer(wasteTypeId: string): void {
-        if(this.hasGameStarted) {
+        if(this.hasGameStarted && this.canAnswer) {
+            this.canAnswer = false
             if (Number(wasteTypeId) === this.currentWasteTypeId) {
                 this.correctAnswer()
             } else {
@@ -125,6 +129,7 @@ export class Game {
 
         setTimeout(() => {
             correctAnswerImg.classList.remove('show-element')
+            this.canAnswer = true
             this.setWasteElement()
         }, 500)
 
@@ -136,6 +141,7 @@ export class Game {
 
         setTimeout(() => {
             incorrectAnswerImg.classList.remove('show-element')
+            this.canAnswer = true
             this.setWasteElement()
         }, 500)
     }
