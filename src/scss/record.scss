@@ -11,16 +11,18 @@
   }
   &__title {
     position: relative;
-    color: green;
+    color: $dark-green;
     text-align: center;
     font-size: 1.8rem;
     margin: 1rem 0 2rem;
+    font-weight: 500;
   }
   &__description {
     position: relative;
     text-align: center;
     font-size: 1.5rem;
     margin-bottom: 2rem;
+    color: $font-color;
   }
   &__best-score {
     display: block;
@@ -28,6 +30,6 @@
     text-align: center;
     font-size: 3rem;
     font-weight: 700;
-    color: green;
+    color: $dark-green;
   }
 }
