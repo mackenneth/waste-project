@@ -17,24 +17,21 @@ export class Countdown {
     }
 
     public setCountdownStrokeDashoffset(strokeDashoffset: number): void {
-        // @ts-ignore
-        countdownCircle.style.strokeDashoffset = strokeDashoffset
+        countdownCircle.style.strokeDashoffset = strokeDashoffset.toString()
     }
 
-    public setTimerInner(text: string | number): void {
-        // @ts-ignore
+    public setTimerInner(text: string): void {
         timerInner.innerText = text
     }
 
     public startCountdown(): Promise<string> {
         return new Promise(resolve => {
             let i = 1
-            this.setTimerInner(this.time)
+            this.setTimerInner(this.time.toString())
             this.setCountdownStrokeDashoffset(this.step * i)
 
             const interval = setInterval( () => {
-                // @ts-ignore
-                this.setTimerInner(this.time - i)
+                this.setTimerInner((this.time - i).toString())
                 if ( i++ === this.time ) {
                     clearInterval( interval )
                     this.time = this.totalTime

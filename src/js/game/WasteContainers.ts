@@ -22,10 +22,10 @@ export class WasteContainers {
     private createContainers() {
         this.wasteTypes.forEach((container, index) => {
             const wasteContainer = this.createContainerEntity(container, index)
-            // @ts-ignore
-            const clone = wasteContainerTemplate.content.cloneNode(true)
+            debugger
+            const clone = wasteContainerTemplate.content.cloneNode(true) as DocumentFragment
 
-            const description = clone.querySelector('.waste-container__description')
+            const description: HTMLElement = clone.querySelector('.waste-container__description')
             const wasteContainerElement: SVGElement = clone.querySelector('.waste-container')
 
             description.textContent = wasteContainer.displayingName
