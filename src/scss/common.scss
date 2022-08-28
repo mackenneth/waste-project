@@ -5,8 +5,24 @@
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 768px) {
-    padding: 1rem;
+
+  @media (max-width: 844px) and (orientation: landscape) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-around;
+    padding: 0.5rem;
+
+    .game-progress-wrapper {
+      justify-content: normal;
+      height: initial;
+      flex-grow: 0;
+    }
+
+    .waste-containers {
+      width: 100%;
+      margin-top: auto;
+    }
   }
 }
 
@@ -42,6 +58,7 @@
     border-radius: 20px;
     background: white;
     padding: 1rem;
+    box-shadow: $box-shadow;
   }
 
   &__close {
