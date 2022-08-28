@@ -22,7 +22,6 @@ export class WasteContainers {
     private createContainers() {
         this.wasteTypes.forEach((container, index) => {
             const wasteContainer = this.createContainerEntity(container, index)
-            debugger
             const clone = wasteContainerTemplate.content.cloneNode(true) as DocumentFragment
 
             const description: HTMLElement = clone.querySelector('.waste-container__description')
