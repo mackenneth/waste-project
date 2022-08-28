@@ -73,8 +73,20 @@ $waste-image-height: 50px;
 
 .waste-container {
   max-width: 150px;
+  display: flex;
+  flex-direction: column;
+
   &__description {
+    margin: 0 auto 0.2rem;
     text-align: center;
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    color: white;
+    user-select: none;
+  }
+  &__image {
+    cursor: pointer;
   }
 
   @media (orientation:landscape) {

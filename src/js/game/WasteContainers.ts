@@ -29,6 +29,7 @@ export class WasteContainers {
             const wasteContainerElement: SVGElement = clone.querySelector('.waste-container')
 
             description.textContent = wasteContainer.displayingName
+            description.style.background = wasteContainer.color
 
             wasteContainerElement.dataset.wasteId = wasteContainer.wasteId.toString()
 
