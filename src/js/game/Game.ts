@@ -81,9 +81,9 @@ export class Game {
         if(this.hasGameStarted && this.canAnswer) {
             this.canAnswer = false
             if (Number(wasteTypeId) === this.currentWasteTypeId) {
-                this.correctAnswer()
+                this.handleAnswer(correctAnswerImg)
             } else {
-                this.incorrectAnswer()
+                this.handleAnswer(incorrectAnswerImg)
             }
         }
     }
@@ -122,27 +122,16 @@ export class Game {
         this.bestScore = score
     }
 
-    private correctAnswer(): void {
+    private handleAnswer(answerImage: HTMLElement): void {
         currentWaste.classList.remove('show-element')
-        correctAnswerImg.classList.add('show-element')
+        answerImage.classList.add('show-element')
         this.setScore(this.score + 1)
 
         setTimeout(() => {
-            correctAnswerImg.classList.remove('show-element')
+            answerImage.classList.remove('show-element')
             this.canAnswer = true
             this.setWasteElement()
         }, 500)
 
-    }
-
-    private incorrectAnswer(): void {
-        currentWaste.classList.remove('show-element')
-        incorrectAnswerImg.classList.add('show-element')
-
-        setTimeout(() => {
-            incorrectAnswerImg.classList.remove('show-element')
-            this.canAnswer = true
-            this.setWasteElement()
-        }, 500)
     }
 }
