@@ -82,6 +82,7 @@ export class Game {
             this.canAnswer = false
             if (Number(wasteTypeId) === this.currentWasteTypeId) {
                 this.handleAnswer(correctAnswerImg)
+                this.setScore(this.score + 1)
             } else {
                 this.handleAnswer(incorrectAnswerImg)
             }
@@ -125,7 +126,6 @@ export class Game {
     private handleAnswer(answerImage: HTMLElement): void {
         currentWaste.classList.remove('show-element')
         answerImage.classList.add('show-element')
-        this.setScore(this.score + 1)
 
         setTimeout(() => {
             answerImage.classList.remove('show-element')
