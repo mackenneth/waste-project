@@ -5,6 +5,10 @@
 @import "@/scss/game.scss";
 @import "@/scss/common.scss";
 
+html {
+  height: 100%;
+}
 body {
+  height: 100%;
   background: $background-color;
 }
